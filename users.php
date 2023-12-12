@@ -26,8 +26,38 @@
         }
     </style>
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="#">Sekolahku</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="halaman_admin.php">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="users.php">Users</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="courses.php">Course</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="user_course.php">User Course</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
     <div class="container">
         <h1 class="text-center">Halaman User</h1>
+
+        <br/>
+
+        <nav class="px-5 d-flex justify-content-start">
+            <a href="form_daftar_user.php">[+] Tambah Baru</a>
+        </nav>
     </div>
 
 
@@ -46,7 +76,6 @@
     $result = mysqli_query($con, $sql);
     if(mysqli_num_rows($result) > 0)
     {
-        echo '<div class="container">';
         echo '<table> <tr> <th> id </th> <th> username </th> <th> email </th> <th> password </th> <th> created_at </th>  <th> updated_at </th> <th> Action </th></tr>';
        while($row = mysqli_fetch_assoc($result)){
            echo "<td>".$row['id']."</td>";
@@ -65,7 +94,6 @@
  
        }
        echo '</table>';
-       echo '<div/>';
     }
     else
     {
